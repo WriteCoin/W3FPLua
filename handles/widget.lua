@@ -1,17 +1,21 @@
-Widget = {
-    getLife = GetWidgetLife,
-    setLife = SetWidgetLife,
-    getX = GetWidgetX,
-    getY = GetWidgetY,
-    getZ = function(widget)
-        LocHandle.move(tmpLocHandle, Widget.getX(widget), Widget.getY(widget))
+Widget = (function()
+    local t = {}
+
+    t.getLife = GetWidgetLife
+    t.setLife = SetWidgetLife
+    t.getX = GetWidgetX
+    t.getY = GetWidgetY
+    t.getZ = function(widget)
+        LocHandle.move(tmpLocHandle, t.getX(widget), t.getY(widget))
         return LocHandle.getZ(tmpLocHandle)
-    end,
-    getLocHandle = function(widget)
-        return LocHandle.alloc(Widget.getX(widget), Widget.getY(widget))
-    end,
-    getPoint = function(widget)
-        return newPoint(Widget.getX(widget), Widget.getY(widget), Widget.getZ(widget))
-    end,
-    triggered = GetTriggerWidget
-}
+    end
+    t.getLocHandle = function(widget)
+        return LocHandle.alloc(t.getX(widget), t.getY(widget))
+    end
+    t.getPoint = function(widget)
+        return newPoint(t.getX(widget), t.getY(widget), t.getZ(widget))
+    end
+    t.triggered = GetTriggerWidget
+
+    return t
+end)()
