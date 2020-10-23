@@ -1,4 +1,6 @@
 require 'W3FPLua.events.game'
 require 'W3FPLua.events.player'
 require 'W3FPLua.events.unit'
+require 'W3FPLua.events.widget'
+require 'W3FPLua.events.dialog'
 require 'W3FPLua.events.limit'
