@@ -7,8 +7,8 @@ CameraSetup = (function()
     t.getDestPositionX = CameraSetupGetDestPositionX
     t.getDestPositionY = CameraSetupGetDestPositionY
     t.getDestPositionZ = function(whichCameraSetup)
-        nsLocation.move(tempLocation, t.getDestPositionX(whichCameraSetup), t.getDestPositionY(whichCameraSetup))
-        return nsLocation.getZ(tempLocation)
+        Location.move(tempLocation, t.getDestPositionX(whichCameraSetup), t.getDestPositionY(whichCameraSetup))
+        return Location.getZ(tempLocation)
     end
 
     t.setDestCoordsPos = CameraSetupSetDestPosition
@@ -21,10 +21,10 @@ CameraSetup = (function()
 
     t.destLocation = function(whichCameraSetup, location, duration)
         if not (location or duration) then
-            nsLocation.move(tempLocation, t.getDestPositionX(whichCameraSetup), t.getDestPositionY(whichCameraSetup) )
+            Location.move(tempLocation, t.getDestPositionX(whichCameraSetup), t.getDestPositionY(whichCameraSetup) )
             return tempLocation
         else
-            t.setDestCoordsPos(whichCameraSetup, nsLocation.getX(location), nsLocation.getY(location), duration)
+            t.setDestCoordsPos(whichCameraSetup, Location.getX(location), Location.getY(location), duration)
         end
     end
     t.destPoint = function(whichCameraSetup, p, duration)

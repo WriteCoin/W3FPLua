@@ -31,26 +31,26 @@ end
 
 ---@param unitIdString string
 ---@return integer
-function GetUnitId(unitIdString)
+function Unit.id(unitIdString)
     return UnitId(unitIdString)
 end
 
 ---@param unitId integer
 ---@return string
-function GetUnitId2String(unitId)
+function Unit.ToStringId(unitId)
     return UnitId2String(FormatCC(unitId))
 end
 
 -- Not currently working correctly...
 ---@param abilityIdString string
 ---@return integer
-function GetAbilityId(abilityIdString)
+function Ability.id(abilityIdString)
     return AbilityId(abilityIdString)
 end
 
 ---@param abilityId integer
 ---@return string
-function GetAbilityId2String(abilityId)
+function Ability.ToStringId(abilityId)
     return AbilityId2String(FormatCC(abilityId))
 end
 

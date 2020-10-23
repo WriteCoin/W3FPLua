@@ -1,4 +1,4 @@
-nsLocation = (function()
+Location = (function()
     local t = {}
 
     t.getX = GetLocationX
@@ -13,7 +13,6 @@ nsLocation = (function()
     t.getZ = GetLocationZ
     t.remove = RemoveLocation
     t.alloc = Location
-    Location = Location
 
     tempLocation = t.alloc(0,0)
 
