@@ -16,6 +16,3 @@ CineFilter = (function()
 
     return t
 end)()
-
-t.isVisible = IsCineFilterDisplayed
-t.setVisible = DisplayCineFilter

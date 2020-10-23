@@ -1,6 +1,8 @@
 Camera = (function()
     local t = {}
 
+    
+
     t.setPosition = SetCameraPosition
     t.setQuickPosition = SetCameraQuickPosition
     t.setBounds = SetCameraBounds

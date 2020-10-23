@@ -1,5 +1,7 @@
 -- Native types
 
+---@class null:nil
+
 ---@class handle
 ---@class integer:number
 ---@class real:number

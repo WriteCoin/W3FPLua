@@ -1,28 +1,33 @@
 WarObject = {}
 
+---@class warObject
+
+---@return warObject
 function newWarObject()
-    local objWar = {}
+    local object = {} ---@type warObject
 
     -- All fields available on this object
-    objWar.all = {}
+    object.all = {}
 
     -- This object's id as a string.
-    objWar.id = ''
+    object.id = ''
 
     -- Parent's id as a string. Undefined if this object has no parent, i.e. 
     -- it is defined by WC3 data itself.
-    objWar.parentId = ''
+    object.parentId = ''
 
     -- This object's type.
-    objWar.type = ''
+    object.type = ''
 
-    return objWar
+    return object
 end
 
 -- Clones this object, creating an independent instance of it.
 -- This instance can then be assigned into a `WarObjects` object
 -- to insert it into the map.
-function WarObject.clone(objWar) end
+---@param warObject warObject
+---@return warObject
+function WarObject.clone(warObject) end
 
 -- /**
 --  * Gets a field on this object.
@@ -44,7 +49,10 @@ function WarObject.clone(objWar) end
 --  *
 --  * Setting a field into null/undefined will reset it to its default value.
 --  */
-function WarObject.getField(objWar, field) end
+---@param warObject warObject
+---@param field string
+---@return string|number
+function WarObject.getField(warObject, field) end
 
 -- /**
 --  * Sets a field on this object.
@@ -53,4 +61,7 @@ function WarObject.getField(objWar, field) end
 --  *
 --  * Setting a field into null/undefined will reset it to its default value.
 --  */
-function WarObject.setField(objWar, field, value) end
+---@param warObject warObject
+---@param field string
+---@param value string|number
+function WarObject.setField(warObject, field, value) end
