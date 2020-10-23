@@ -40,7 +40,7 @@ Camera = (function()
     t.getTargetY = GetCameraTargetPositionY
     t.getTargetZ = GetCameraTargetPositionZ
     t.getTargetLocation = function()
-        nsLocation.move(tempLocation, t.getTargetX(), t.getTargetY(), t.getTargetZ() )
+        Location.move(tempLocation, t.getTargetX(), t.getTargetY(), t.getTargetZ() )
         return tempLocation
     end
     t.getTargetPoint = function()
@@ -51,7 +51,7 @@ Camera = (function()
     t.getEyeY = GetCameraEyePositionY
     t.getEyeZ = GetCameraEyePositionZ
     t.getEyeLocation = function()
-        nsLocation.move( tempLocation, t.getEyeX(), t.getEyeY(), t.getEyeZ() )
+        Location.move( tempLocation, t.getEyeX(), t.getEyeY(), t.getEyeZ() )
         return tempLocation
     end
     t.getEyePoint = function()

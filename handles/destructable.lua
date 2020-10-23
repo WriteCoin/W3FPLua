@@ -22,8 +22,8 @@ Destructable = (function()
     t.getX = GetDestructableX
     t.getY = GetDestructableY
     t.getZ = function(destructable)
-        nsLocation.move(tempLocation, t.getX(destructable), t.getY(destructable))
-        return nsLocation.getZ(tempLocation)
+        Location.move(tempLocation, t.getX(destructable), t.getY(destructable))
+        return Location.getZ(tempLocation)
     end
     t.getPoint = function(destructable)
         return newPoint(t.getX(destructable), t.getY(destructable), t.getZ(destructable))
