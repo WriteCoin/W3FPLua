@@ -1,13 +1,13 @@
-EventWidget = (function()
-    local t = {}
+EventWidget = {}
 
-    ---@param i integer
-    ---@return widgetevent
-    function t.convert(i)
-        return ConvertWidgetEvent(i)
-    end
+local t = EventWidget
 
-    t.Death = t.convert(89)
+---@param i integer
+---@return widgetevent
+function t.convert(i)
+    return ConvertWidgetEvent(i)
+end
 
-    return t
-end)()
+t.Death = t.convert(89)
+
+return t

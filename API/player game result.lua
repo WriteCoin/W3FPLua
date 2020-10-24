@@ -1,11 +1,16 @@
-PlayerGameResult = (function()
-    local t = {}
+PlayerGameResult = {}
 
-    t.convert = ConvertPlayerGameResult
-    t.Victory = t.convert(0)
-    t.Defeat = t.convert(1)
-    t.Tie = t.convert(2)
-    t.Neutral = t.convert(3)
+local t = PlayerGameResult
 
-    return t
-end)()
+---@param i integer
+---@return playergameresult
+function t.convert(i)
+    return ConvertPlayerGameResult(i)
+end
+
+t.Victory = t.convert(0)
+t.Defeat = t.convert(1)
+t.Tie = t.convert(2)
+t.Neutral = t.convert(3)
+
+return t

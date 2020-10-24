@@ -1,26 +1,37 @@
-Point = (function()
-    local t = {}
+---@class point
 
-    t.getX = function(p)
-        return p.x
-    end
-    t.getY = function(p)
-        return p.y
-    end
-    t.getZ = function(p)
-        return p.z
-    end
-    t.isBlighted = function(p)
-        return IsPointBlighted(t.getX(p), t.getY(p))
-    end
+Point = {}
 
-    function newPoint(x, y, z)
-        local p = {}
-        p.x = defaultValue(x, 0)
-        p.y = defaultValue(y, 0)
-        p.z = defaultValue(z, 0)
-        return p
-    end
+local t = Point
 
-    return t
-end)()
+---@param p point
+---@return real
+function t.getX(p)
+    return p.x
+end
+
+---@param p point
+---@return real
+function t.getY(p)
+    return p.y
+end
+
+---@param p point
+---@return real
+function t.getZ(p)
+    return p.z
+end
+
+function t.isBlighted(p)
+    return IsPointBlighted(t.getX(p), t.getY(p))
+end
+
+function newPoint(x, y, z)
+    local p = {} ---@type point
+    p.x = defaultValue(tonumber(x), 0)
+    p.y = defaultValue(tonumber(y), 0)
+    p.z = defaultValue(tonumber(z), 0)
+    return p
+end
+
+return t

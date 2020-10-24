@@ -1,11 +1,16 @@
-TexMapFlags = (function()
-    local t = {}
+TexMapFlags = {}
 
-    t.convert = ConvertTexMapFlags
-    t.None = t.convert(0)
-    t.WrapU = t.convert(1)
-    t.WrapV = t.convert(2)
-    t.WrapUV = t.convert(3)
+local t = TexMapFlags
 
-    return t
-end)()
+---@param i integer
+---@return texmapflags
+function t.convert(i)
+    return ConvertTexMapFlags(i)
+end
+
+t.None = t.convert(0)
+t.WrapU = t.convert(1)
+t.WrapV = t.convert(2)
+t.WrapUV = t.convert(3)
+
+return t

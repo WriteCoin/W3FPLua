@@ -13,44 +13,44 @@
 --
 --===================================================
 
-EventGame = (function()
-    local t = {}
+EventGame = {}
 
-    ---@param i integer
-    ---@return gameevent
-    function t.convert(i)
-        return ConvertGameEvent(i)
-    end
+local t = EventGame
 
-    --===================================================
-    -- For use with TriggerRegisterGameEvent
-    --===================================================
-    t.Victory = t.convert(0)
-    t.EndLevel = t.convert(1)
+---@param i integer
+---@return gameevent
+function t.convert(i)
+    return ConvertGameEvent(i)
+end
 
-    t.VariableLimit = t.convert(2)
-    t.StateLimit = t.convert(3)
+--===================================================
+-- For use with TriggerRegisterGameEvent
+--===================================================
+t.Victory = t.convert(0)
+t.EndLevel = t.convert(1)
 
-    t.TimerExpired = t.convert(4)
+t.VariableLimit = t.convert(2)
+t.StateLimit = t.convert(3)
 
-    t.EnterRegion = t.convert(5)
-    t.LeaveRegion = t.convert(6)
+t.TimerExpired = t.convert(4)
 
-    t.TrackableHit = t.convert(7)
-    t.TrackableTrack = t.convert(8)
+t.EnterRegion = t.convert(5)
+t.LeaveRegion = t.convert(6)
 
-    t.ShowSkill = t.convert(9)
-    t.BuildSubmenu = t.convert(10)
+t.TrackableHit = t.convert(7)
+t.TrackableTrack = t.convert(8)
 
-    --===================================================
-    -- Frozen Throne Expansion Events
-    -- Need to be added here to preserve compat
-    --===================================================
-    t.Loaded = t.convert(256)
-    t.TournamentFinishSoon = t.convert(257)
-    t.TournamentFinishNow = t.convert(258)
-    t.Save = t.convert(259)
-    t.CustomUIFrame = t.convert(310)
+t.ShowSkill = t.convert(9)
+t.BuildSubmenu = t.convert(10)
 
-    return t
-end)()
+--===================================================
+-- Frozen Throne Expansion Events
+-- Need to be added here to preserve compat
+--===================================================
+t.Loaded = t.convert(256)
+t.TournamentFinishSoon = t.convert(257)
+t.TournamentFinishNow = t.convert(258)
+t.Save = t.convert(259)
+t.CustomUIFrame = t.convert(310)
+
+return t

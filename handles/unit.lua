@@ -1,7 +1,7 @@
-Unit = (function()
-    local t = {}
+Unit = {}
 
-    
+local t = Unit
 
-    return t
-end)()
+
+
+return t

@@ -1,5 +1,7 @@
-Button = (function()
-    local t = {}
+Button = {}
 
-    return t
-end)()
+local t = Button
+
+
+
+return t

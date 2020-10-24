@@ -1,21 +1,55 @@
-Widget = (function()
-    local t = {}
+--============================================================================
+-- Widget API
 
-    t.getLife = GetWidgetLife
-    t.setLife = SetWidgetLife
-    t.getX = GetWidgetX
-    t.getY = GetWidgetY
-    t.getZ = function(widget)
-        Location.move(tmpLocHandle, t.getX(widget), t.getY(widget))
-        return Location.getZ(tmpLocHandle)
-    end
-    t.getLocHandle = function(widget)
-        return Location.alloc(t.getX(widget), t.getY(widget))
-    end
-    t.getPoint = function(widget)
-        return newPoint(t.getX(widget), t.getY(widget), t.getZ(widget))
-    end
-    t.triggered = GetTriggerWidget
+Widget = {}
 
-    return t
-end)()
+local t = Widget
+
+---@param whichWidget widget
+---@return real
+function t.getLife(whichWidget)
+    return GetWidgetLife(whichWidget)
+end
+
+---@param whichWidget widget
+---@param newLife real
+function t.setLife(whichWidget, newLife)
+    SetWidgetLife(whichWidget, newLife)
+end
+
+---@param whichWidget widget
+---@return real
+function t.getX(whichWidget)
+    return GetWidgetX(whichWidget)
+end
+
+---@param whichWidget widget
+---@return real
+function t.getY(whichWidget)
+    return GetWidgetY(whichWidget)
+end
+
+---@param whichWidget widget
+---@return real
+function t.getZ(whichWidget)
+    nsLocation.move(tempLocation, t.getX(whichWidget), t.getY(whichWidget))
+    return nsLocation.getZ(tempLocation)
+end
+
+---@param whichWidget widget
+---@return location
+function t.getLoc(whichWidget)
+    return nsLocation.alloc(t.getX(whichWidget), t.getY(whichWidget))
+end
+
+---@param whichWidget widget
+function t.getPoint(whichWidget)
+    return newPoint(t.getX(whichWidget), t.getY(whichWidget), t.getZ(whichWidget))
+end
+
+---@return widget
+function t.triggered()
+    GetTriggerWidget()
+end
+
+return t

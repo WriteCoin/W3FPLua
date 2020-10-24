@@ -1,72 +1,189 @@
-Destructable = (function()
-    local t = {}
+--============================================================================
+-- Destructable Object API
+-- Facing arguments are specified in degrees
 
-    t.isInvulnerable = IsDestructableInvulnerable
-    t.setInvulnerable = SetDestructableInvulnerable
+Destructable = {}
 
-    t.getLife = GetDestructableLife
-    t.setLife = SetDestructableLife
-    t.life = function(destructable, life)
-        if not life then
-            return t.getLife(destructable)
-        else
-            t.setLife(destructable, life)
-        end
-    end
+local t = Destructable
 
-    t.remove = RemoveDestructable
-    t.kill = KillDestructable
+---@param objectid integer
+---@param x real
+---@param y real
+---@param z real
+---@param face real
+---@param scale real
+---@param variation integer
+---@return destructable
+function t.coordsCreate(objectid, x, y, z, face, scale, variation)
+    return CreateDestructableZ( FormatCC(objectid), x, y, z, face, scale, variation)
+end
 
-    t.getTypeId = GetDestructableTypeId
+---@param objectid integer
+---@param p point
+---@param face real
+---@param scale real
+---@param variation integer
+---@return destructable
+function t.pointCreate(objectid, p, face, scale, variation)
+    return t.coordsCreate(objectid, Point.getX(p), Point.getY(p), Point.getZ(p), face, scale, variation)
+end
 
-    t.getX = GetDestructableX
-    t.getY = GetDestructableY
-    t.getZ = function(destructable)
-        Location.move(tempLocation, t.getX(destructable), t.getY(destructable))
-        return Location.getZ(tempLocation)
-    end
-    t.getPoint = function(destructable)
-        return newPoint(t.getX(destructable), t.getY(destructable), t.getZ(destructable))
-    end
+---@param objectid integer
+---@param x real
+---@param y real
+---@param z real
+---@param face real
+---@param scale real
+---@param variation integer
+---@return destructable
+function t.deadCoordsCreate(objectid, x, y, z, face, scale, varitaion)
+    return CreateDeadDestructableZ(FormatCC(objectid), x, y, z, face, scale, varitaion)
+end
 
-    t.getMaxLife = GetDestructableMaxLife
-    t.setMaxLife = SetDestructableMaxLife
-    t.maxLife = function(destructable, max)
-        if not max then
-            return t.getMaxLife(destructable)
-        else
-            t.setMaxLife(destructable, max)
-        end
-    end
-    t.restoreLife = DestructableRestoreLife
+---@param objectid integer
+---@param p point
+---@param face real
+---@param scale real
+---@param variation integer
+---@return destructable
+function t.deadPointCreate(objectid, p, face, scale, variation)
+    return t.deadCoordsCreate(objectid, Point.getX(p), Point.getY(p), Point.getZ(p), face, scale, variation)
+end
 
-    t.queueAnimation = QueueDestructableAnimation
-    t.setAnimation = SetDestructableAnimation
-    t.setSpeedAnimation = SetDestructableAnimationSpeed
 
-    t.show = ShowDestructable
+---@param d destructable
+function t.remove(d)
+    RemoveDestructable(d)
+end
 
-    t.getOccluderHeight = GetDestructableOccluderHeight
-    t.setOccluderHeight = SetDestructableOccluderHeight
+---@param d destructable
+function t.kill(d)
+    KillDestructable(d)
+end
 
-    t.getName = GetDestructableName
+---@param d destructable
+---@param flag boolean
+function t.setInvulnerable(d, flag)
+    SetDestructableInvulnerable(d, flag)
+end
 
-    t.coordsCreate = function(objectid, x, y, z, face, scale, variation)
-        return CreateDestructableZ(FormatCC(objectid), x, y, z, face, scale, variation)
-    end
-    t.pointCreate = function(objectid, p, face, scale, variation)
-        return t.coordsCreate(objectid, Point.getX(p), Point.getY(p), Point.getZ(p), face, scale, variation)
-    end
-    t.deadCoordsCreate = function(objectid, x, y, z, face, scale, variation)
-        return CreateDeadDestructableZ(FormatCC(objectid), x, y, z, face, scale, variation)
-    end
-    t.deadPointCreate = function(objectid, p, face, scale, variation)
-        return t.deadPointCreate(objectid, Point.getX(p), Point.getY(p), Point.getZ(p), face, scale, variation)
-    end
+---@param d destructable
+---@return boolean
+function t.isInvulnerable(d)
+    return IsDestructableInvulnerable(d)
+end
 
-    t.triggered = GetTriggerDestructable
-    t.filtered = GetFilterDestructable
-    t.enumed = GetEnumDestructable
+---@param r rect
+---@param filter boolexpr
+---@param actionFunc code
+function t.enumInRect(r, filter, actionFunc)
+    EnumDestructablesInRect(r, filter, actionFunc)
+end
 
-    return t
-end)()
+---@param d destructable
+---@return integer
+function t.getTypeId(d)
+    return GetDestructableTypeId(d)
+end
+
+---@param d destructable
+---@return real
+function t.getX(d)
+    return GetDestructableX(d)
+end
+
+---@param d destructable
+---@return real
+function t.getY(d)
+    return GetDestructableY(d)
+end
+
+---@param d destructable
+---@param life real
+function t.setLife(d, life)
+    SetDestructableLife(d, life)
+end
+
+---@param d destructable
+---@return real
+function t.getLife(d)
+    return GetDestructableLife(d)
+end
+
+---@param d destructable
+---@param max real
+function t.setMaxLife(d, max)
+    SetDestructableMaxLife(d, max)
+end
+
+---@param d destructable
+---@return real
+function t.getMaxLife(d)
+    return GetDestructableMaxLife(d)
+end
+
+---@param d destructable
+---@param life real
+---@param birth boolean
+function t.restoreLife(d, life, birth)
+    DestructableRestoreLife(d, life, birth)
+end
+
+---@param d destructable
+---@param whichAnimation string
+function t.queueAnimation(d, whichAnimation)
+    QueueDestructableAnimation(d, whichAnimation)
+end
+
+---@param d destructable
+---@param whichAnimation string
+function t.setAnimation(d, whichAnimation)
+    SetDestructableAnimation(d, whichAnimation)
+end 
+
+---@param d destructable
+---@param speedFactor real
+function t.setAnimationSpeed(d, speedFactor)
+    SetDestructableAnimationSpeed(d, speedFactor)
+end
+
+---@param d destructable
+---@param flag boolean
+function t.show(d, flag)
+    ShowDestructable(d, flag)
+end
+
+---@param d destructable
+---@return real
+function t.getOccluderHeight(d)
+    return GetDestructableOccluderHeight(d)
+end
+
+---@param d destructable
+---@param height real
+function t.setOccluderHeight(d, height)
+    SetDestructableOccluderHeight(d, height)
+end
+
+---@param d destructable
+---@return string
+function t.getName(d)
+    return GetDestructableName(d)
+end
+
+---@return destructable
+function t.triggered()
+    GetTriggerDestructable()
+end
+
+---@return destructable
+function t.filtered()
+    return GetFilterDestructable()
+end
+
+---@return destructable
+function t.enumed()
+    return GetEnumDestructable()
+end
+
+return t
