@@ -1,6 +1,6 @@
-WeatherEffect = {}
+local export = {}
 
-local t = WeatherEffect
+local t = export
 
 ---@param where rect
 ---@param effectID integer

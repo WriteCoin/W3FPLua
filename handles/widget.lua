@@ -1,9 +1,9 @@
 --============================================================================
 -- Widget API
 
-Widget = {}
+local export = {}
 
-local t = Widget
+local t = export
 
 ---@param whichWidget widget
 ---@return real

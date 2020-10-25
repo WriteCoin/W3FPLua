@@ -1,6 +1,6 @@
-CineFilter = {}
+local export = {}
 
-local t = CineFilter
+local t = export
 
 ---@param filename string
 function t.setTexture(filename)
