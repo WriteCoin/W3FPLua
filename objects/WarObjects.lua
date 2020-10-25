@@ -1,9 +1,11 @@
-WarObjects = {}
+local export = {}
+
+local t = export
 
 ---@class warObjects
 
 ---@return warObjects
-function newWarObjects()
+local function newWarObjects()
     local object = {} ---@type warObjects
 
     -- /** All WC3 objects of this type in the map. Meant for iteration. */
@@ -27,7 +29,7 @@ end
 -- */
 ---@param warObjects warObjects
 ---@param data string
-function WarObjects.readFromString(warObjects, data) end
+function t.readFromString(warObjects, data) end
 
 -- /**
 -- * Writes the WC3 objects contained in this object out into the string.
@@ -35,7 +37,7 @@ function WarObjects.readFromString(warObjects, data) end
 -- */
 ---@param warObjects warObjects
 ---@return string
-function WarObjects.writeToString(warObjects) end
+function t.writeToString(warObjects) end
 
 -- /**
 -- * Gets a reference to a WC3 object inside this storage.
@@ -61,7 +63,7 @@ function WarObjects.writeToString(warObjects) end
 ---@param warObjects warObjects
 ---@param rawid string
 ---@return warObject
-function object.getObject(warObjects, rawid) end
+function t.getObject(warObjects, rawid) end
 
 -- /**
 -- * Sets a WC3 object into this storage.
@@ -79,4 +81,6 @@ function object.getObject(warObjects, rawid) end
 ---@param warObjects warObjects
 ---@param rawid string
 ---@param object warObject
-function object.setObject(warObjects, rawid, object) end
+function t.setObject(warObjects, rawid, object) end
+
+return t, newWarObjects()

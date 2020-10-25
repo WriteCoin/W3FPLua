@@ -1,6 +1,6 @@
-Race = {}
+local export = {}
 
-local t = Race
+local t = export
 
 ---@param i integer
 ---@return race

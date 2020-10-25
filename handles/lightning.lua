@@ -1,6 +1,6 @@
-Lightning = {}
+local export = {}
 
-local t = {}
+local t = export
 
 ---@param codeName string
 ---@param checkVisibility boolean

@@ -1,6 +1,6 @@
-TexMapFlags = {}
+local export = {}
 
-local t = TexMapFlags
+local t = export
 
 ---@param i integer
 ---@return texmapflags

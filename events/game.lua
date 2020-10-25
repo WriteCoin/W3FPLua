@@ -13,9 +13,9 @@
 --
 --===================================================
 
-EventGame = {}
+local export = {}
 
-local t = EventGame
+local t = export
 
 ---@param i integer
 ---@return gameevent

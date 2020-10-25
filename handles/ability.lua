@@ -1,6 +1,6 @@
-Ability = {}
+local export = {}
     
-local t = Ability
+local t = export
 
 ---@param abilCode integer
 ---@param tooltip string
@@ -416,6 +416,17 @@ function t.getByIdSound(abilityId, t)
     return GetAbilitySoundById(abilityId, t)
 end
 
+-- Not currently working correctly...
+---@param abilityIdString string
+---@return integer
+function t.id(abilityIdString)
+    return AbilityId(abilityIdString)
+end
 
+---@param abilityId integer
+---@return string
+function t.ToStringId(abilityId)
+    return AbilityId2String(FormatCC(abilityId))
+end
 
 return t

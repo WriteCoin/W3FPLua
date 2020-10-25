@@ -1,6 +1,6 @@
-PlayerState = {}
+local export = {}
 
-local t = PlayerState
+local t = export
 
 ---@param i integer
 ---@return playerstate

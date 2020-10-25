@@ -1,9 +1,9 @@
 --============================================================================
 -- Player API
 
-nsPlayer = {}
+local export = {}
 
-local t = {}
+local t = export
 
 ---@param number integer
 ---@return player

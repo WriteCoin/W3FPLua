@@ -2,9 +2,9 @@
 -- Blight API
 --
 
-Blight = {}
+local export = {}
 
-local t = Blight
+local t = export
 
 ---@param whichPlayer player
 ---@param x real

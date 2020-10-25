@@ -1,9 +1,9 @@
 --============================================================================
 -- Camera API
 
-Camera = {}
+local export = {}
 
-local t = Camera
+local t = export
 
 ---@param x real
 ---@param y real

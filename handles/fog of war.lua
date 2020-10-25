@@ -1,9 +1,9 @@
 --============================================================================
 -- Fog of War API
 
-FogOfWar = {}
+local export = {}
 
-local t = FogOfWar
+local t = export
 
 ---@param forWhichPlayer player
 ---@param whichState fogstate

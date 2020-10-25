@@ -1,6 +1,6 @@
-EventDialog = {}
+local export = {}
 
-local t = EventDialog
+local t = export
 
 ---@param i integer
 ---@return dialogevent

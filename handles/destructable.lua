@@ -2,9 +2,9 @@
 -- Destructable Object API
 -- Facing arguments are specified in degrees
 
-Destructable = {}
+local export = {}
 
-local t = Destructable
+local t = export
 
 ---@param objectid integer
 ---@param x real

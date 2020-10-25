@@ -1,8 +1,8 @@
 -- Automation Test
 
-AutomationTest = {}
+local export = {}
 
-local t = AutomationTest
+local t = export
 
 ---@param testType string
 function t.setType(testType)

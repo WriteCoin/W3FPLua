@@ -2,9 +2,9 @@
 -- Doodad API
 --
 
-Doodad = {}
+local export = {}
 
-local t = Doodad
+local t = export
 
 ---@param x real
 ---@param y real

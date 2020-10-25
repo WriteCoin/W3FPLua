@@ -1,6 +1,6 @@
-EventUnit = {}
+local export = {}
 
-local t = EventUnit
+local t = export
 
 ---@param i integer
 ---@return unitevent

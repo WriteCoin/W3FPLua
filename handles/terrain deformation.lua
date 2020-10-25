@@ -1,6 +1,6 @@
-TerrainDeformation = {}
+local export = {}
 
-local t = TerrainDeformation
+local t = export
 
 ---@param x real
 ---@param y real

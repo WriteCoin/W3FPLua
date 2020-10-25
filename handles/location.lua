@@ -1,6 +1,6 @@
-nsLocation = {}
+local export = {}
 
-local t = nsLocation
+local t = export
 
 ---@param x real
 ---@param y real
@@ -60,6 +60,6 @@ function t.isInRegion(whichLocation, whichRegion)
     IsLocationInRegion(whichRegion, whichLocation)
 end
 
-tempLocation = t.alloc(0,0)
+local tempLocation = t.alloc(0,0)
 
-return t
+return t, tempLocation

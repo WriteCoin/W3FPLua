@@ -1,6 +1,6 @@
-SpecialEffect = {}
+local export = {}
 
-local t = SpecialEffect
+local t = export
 
 ---@param modelName string
 ---@param x real
@@ -36,3 +36,5 @@ end
 function t.destroy(whichEffect)
     DestroyEffect(whichEffect)
 end
+
+return t

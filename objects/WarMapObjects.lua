@@ -1,10 +1,10 @@
 -- Encapsulates all objects of all types in a map.
-WarMapObjects = {}
+local export = {}
 
 ---@class warMapObjects
 
 ---@return warMapObjects
-function newWarMapObjects()
+local function newWarMapObjects()
     local object = {}           ---@type warMapObjects
 
     object.ability = {}         ---@type warObject
@@ -17,3 +17,5 @@ function newWarMapObjects()
 
     return object
 end
+
+return export, newWarMapObjects

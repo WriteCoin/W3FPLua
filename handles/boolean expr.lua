@@ -2,9 +2,9 @@
 -- Boolean Expr API ( for compositing trigger conditions and unit filter funcs...)
 --============================================================================
 
-BooleanExpr = {}
+local export = {}
 
-local t = BooleanExpr
+local t = export
 
 ---@param operandA boolexpr
 ---@param operandB boolexpr

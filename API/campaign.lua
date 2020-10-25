@@ -1,9 +1,9 @@
 --============================================================================
 -- Campaign API
 
-Campaign = {}
+local export = {}
 
-local t = Campaign
+local t = export
 
 ---@param cleared boolean
 function t.setTutorialCleared(cleared)

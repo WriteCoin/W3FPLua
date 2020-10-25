@@ -1,6 +1,6 @@
-SpellEffect = {}
+local export = {}
 
-local t = SpellEffect
+local t = export
 
 ---@param abilityString string
 ---@param t effecttype
@@ -69,3 +69,5 @@ end
 function t.byIdTargetAdd(abilityId, t, targetWidget, attachPoint)
     return AddSpellEffectTargetById(abilityId, t, targetWidget, attachPoint)
 end
+
+return t

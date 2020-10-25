@@ -2,9 +2,9 @@
 -- Computer AI interface
 --
 
-AI = {}
+local export = {}
 
-local t = AI
+local t = export
 
 ---@param num player
 ---@param script string

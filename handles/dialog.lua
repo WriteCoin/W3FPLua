@@ -1,9 +1,9 @@
 --============================================================================
 -- Dialog API
 
-Dialog = {}
+local export = {}
 
-local t = Dialog
+local t = export
 
 ---@return dialog
 function t.create()

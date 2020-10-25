@@ -1,6 +1,6 @@
-CameraField = {}
+local export = {}
 
-local t = CameraField
+local t = export
 
 ---@param i integer
 ---@return camerafield

@@ -1,6 +1,6 @@
-CameraMargin = {}
+local export = {}
 
-local t = CameraMargin
+local t = export
 
 t.Left = 0
 t.Right = 1

@@ -1,6 +1,6 @@
-PlayerGameResult = {}
+local export = {}
 
-local t = PlayerGameResult
+local t = export
 
 ---@param i integer
 ---@return playergameresult

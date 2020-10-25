@@ -1,10 +1,12 @@
 -- Encapsulates a WC3 map during the compilation stage.
-WarMap = {}
+local export = {}
+
+local t = export
 
 ---@class warMap
 
 ---@return warMap
-function newWarMap()
+local function newWarMap()
     local object = {} ---@type warMap
     
     -- /** Reference to all object storage in this map. */
@@ -25,7 +27,7 @@ end
 ---@param warMap warMap
 ---@param path string
 ---@return string|table
-function WarMap.readFile(warMap, path) end
+function t.readFile(warMap, path) end
 
 -- /**
 -- * Adds a directory to the map, preserving the file hierarcy.
@@ -33,7 +35,7 @@ function WarMap.readFile(warMap, path) end
 -- */
 ---@param warMap warMap
 ---@param path string
-function WarMap.addDir(warMap, path) end
+function t.addDir(warMap, path) end
 
 -- /**
 -- * Adds a file to the map with the specified content as a string.
@@ -42,7 +44,7 @@ function WarMap.addDir(warMap, path) end
 ---@param warMap warMap
 ---@param archivePath string
 ---@param contents string
-function WarMap.addFileString(warMap, archivePath, contents) end
+function t.addFileString(warMap, archivePath, contents) end
 
 -- /**
 -- * Adds a file to the map, reading it from disk at the specified lcoation.
@@ -51,21 +53,21 @@ function WarMap.addFileString(warMap, archivePath, contents) end
 ---@param warMap warMap
 ---@param archivePath string
 ---@param diskPath string
-function WarMap.addFileDisk(warMap, archivePath, diskPath) end
+function t.addFileDisk(warMap, archivePath, diskPath) end
 
 -- /**
 -- * Writes the map and all manually added files to the specified directory.
 -- */
 ---@param warMap warMap
 ---@param path string
-function WarMap.writeToDir(warMap, path) end
+function t.writeToDir(warMap, path) end
 
 -- /**
 -- * Writes the map and all manually added files to an MPQ archive at the specified path.
 -- */
 ---@param warMap warMap
 ---@param path string
-function WarMap.writeToMpq(warMap, path) end
+function t.writeToMpq(warMap, path) end
 
 -- /**
 -- * Initializes an object storage for the specified extension type.
@@ -73,17 +75,25 @@ function WarMap.writeToMpq(warMap, path) end
 -- */
 ---@param warMap warMap
 ---@param ext string
-function WarMap.initObjectStorage(warMap, ext) end
+function t.initObjectStorage(warMap, ext) end
 
 -- /**
 -- * Initializes all object storages in the map.
 -- */
 ---@param warMap warMap
-function WarMap.initObjects(warMap) end
+function t.initObjects(warMap) end
 
 -- /**
 -- * Writes out all the object storages to their respective files in the map.
 -- */
 ---@param warMap warMap
 ---@param objects warObjects
-function WarMap.commitObjectStorage(warMap, objects) end
+function t.commitObjectStorage(warMap, objects) end
+
+-- /**
+--  * Currently compiling map, if any.
+--  * @compiletime
+--  */
+local currentMap = newWarMap()
+
+return t, newWarMap, currentMap

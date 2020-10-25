@@ -1,6 +1,6 @@
-Button = {}
+local export = {}
 
-local t = Button
+local t = export
 
 
 

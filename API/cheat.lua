@@ -1,9 +1,19 @@
 --============================================================================
+local export = {}
+
 ---@param cheatStr string
-function Cheat(cheatStr) end
+function export.Cheat(cheatStr) 
+    Cheat(cheatStr)
+end
 
 ---@return boolean
-function IsNoVictoryCheat() end
+function export.IsNoVictoryCheat() 
+    return IsNoVictoryCheat()
+end
 
 ---@return boolean
-function IsNoDefeatCheat() end
+function export.IsNoDefeatCheat() 
+    return IsNoDefeatCheat()
+end
+
+return export.Cheat, export.IsNoVictoryCheat, export.IsNoDefeatCheat

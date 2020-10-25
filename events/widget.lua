@@ -1,6 +1,6 @@
-EventWidget = {}
+local export = {}
 
-local t = EventWidget
+local t = export
 
 ---@param i integer
 ---@return widgetevent

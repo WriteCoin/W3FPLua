@@ -1,6 +1,6 @@
-BlendMode = {}
+local export = {}
 
-local t = BlendMode
+local t = export
 
 ---@param i integer
 ---@return blendmode

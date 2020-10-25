@@ -1,6 +1,6 @@
-Handle = {}
+local export = {}
 
-local t = Handle
+local t = export
 
 ---@param h handle
 ---@return integer

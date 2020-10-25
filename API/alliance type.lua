@@ -1,6 +1,6 @@
-AllianceType = {}
+local export = {}
 
-local t = AllianceType
+local t = export
 
 ---@param i integer
 ---@return alliancetype

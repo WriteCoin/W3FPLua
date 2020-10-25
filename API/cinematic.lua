@@ -1,6 +1,6 @@
-Cinematic = {}
+local export = {}
 
-local t = Cinematic
+local t = export
 
 ---@param portraitUnitId integer
 ---@param color playercolor

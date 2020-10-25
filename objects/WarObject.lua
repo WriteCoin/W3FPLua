@@ -1,9 +1,11 @@
-WarObject = {}
+local export = {}
+
+local t = export
 
 ---@class warObject
 
 ---@return warObject
-function newWarObject()
+local function newWarObject()
     local object = {} ---@type warObject
 
     -- All fields available on this object
@@ -27,7 +29,7 @@ end
 -- to insert it into the map.
 ---@param warObject warObject
 ---@return warObject
-function WarObject.clone(warObject) end
+function t.clone(warObject) end
 
 -- /**
 --  * Gets a field on this object.
@@ -52,7 +54,7 @@ function WarObject.clone(warObject) end
 ---@param warObject warObject
 ---@param field string
 ---@return string|number
-function WarObject.getField(warObject, field) end
+function t.getField(warObject, field) end
 
 -- /**
 --  * Sets a field on this object.
@@ -64,4 +66,6 @@ function WarObject.getField(warObject, field) end
 ---@param warObject warObject
 ---@param field string
 ---@param value string|number
-function WarObject.setField(warObject, field, value) end
+function t.setField(warObject, field, value) end
+
+return t, newWarObject

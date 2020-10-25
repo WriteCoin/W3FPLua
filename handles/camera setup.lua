@@ -1,6 +1,6 @@
-CameraSetup = {}
+local export = {}
 
-local t = CameraSetup
+local t = export
 
 ---@return camerasetup
 function t.create()

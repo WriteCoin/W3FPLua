@@ -3,9 +3,9 @@
 -- variable, player state, game state, and unit state events
 -- ( do NOT change the order of these... )
 --===================================================
-LimitOp = {}
+local export = {}
 
-local t = LimitOp
+local t = export
 
 ---@param i integer
 ---@return limitop

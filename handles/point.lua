@@ -1,8 +1,8 @@
 ---@class point
 
-Point = {}
+local export = {}
 
-local t = Point
+local t = export
 
 ---@param p point
 ---@return real
@@ -26,7 +26,7 @@ function t.isBlighted(p)
     return IsPointBlighted(t.getX(p), t.getY(p))
 end
 
-function newPoint(x, y, z)
+local function newPoint(x, y, z)
     local p = {} ---@type point
     p.x = defaultValue(tonumber(x), 0)
     p.y = defaultValue(tonumber(y), 0)
@@ -34,4 +34,4 @@ function newPoint(x, y, z)
     return p
 end
 
-return t
+return t, newPoint

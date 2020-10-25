@@ -1,6 +1,6 @@
-PlayerColor = {}
+local export = {}
 
-local t = PlayerColor
+local t = export
 
 ---@param i integer
 ---@return playercolor
